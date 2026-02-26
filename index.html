@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BF Outdoor Services • Pool Maintenance Checklist</title>
+  <meta name="theme-color" content="#0b1220" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --line:rgba(255,255,255,.12);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
+      --ok:#22c55e;
+      --blue:#3b82f6;
+      --red:#ef4444;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --r:18px;
+      --r2:14px;
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 15% -10%, rgba(59,130,246,.35), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(34,197,94,.20), transparent 55%),
+        radial-gradient(1200px 700px at 50% 110%, rgba(251,191,36,.14), transparent 55%),
+        var(--bg);
+    }
+    .wrap{max-width:1280px; margin:22px auto; padding:0 14px 44px;}
+    .topbar{
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:14px; border:1px solid var(--line); border-radius:18px;
+      background:linear-gradient(180deg, rgba(18,27,46,.92), rgba(15,23,42,.88));
+      box-shadow:var(--shadow);
+      flex-wrap:wrap;
+    }
+    .brand{display:flex; gap:12px; align-items:center; min-width:260px}
+    .mark{
+      width:48px; height:48px; border-radius:14px;
+      border:1px solid var(--line); background:rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950; letter-spacing:.6px;
+    }
+    .title h1{font-size:18px; margin:0; letter-spacing:.2px}
+    .title p{margin:3px 0 0; font-size:12px; color:var(--muted)}
+    .actions{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end}
+    button,.btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:850;
+      font-size:13px;
+      letter-spacing:.2px;
+      transition:transform .05s ease, background .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    button:hover{background:rgba(255,255,255,.10)}
+    button:active{transform:translateY(1px)}
+    .primary{
+      background:linear-gradient(180deg, rgba(59,130,246,.95), rgba(37,99,235,.92));
+      border-color:rgba(59,130,246,.45);
+    }
+    .primary:hover{background:linear-gradient(180deg, rgba(59,130,246,1), rgba(37,99,235,1))}
+    .success{
+      background:linear-gradient(180deg, rgba(34,197,94,.95), rgba(22,163,74,.92));
+      border-color:rgba(34,197,94,.45);
+    }
+    .success:hover{background:linear-gradient(180deg, rgba(34,197,94,1), rgba(22,163,74,1))}
+    .danger{
+      background:linear-gradient(180deg, rgba(239,68,68,.92), rgba(220,38,38,.92));
+      border-color:rgba(239,68,68,.35);
+    }
+    .danger:hover{background:linear-gradient(180deg, rgba(239,68,68,1), rgba(220,38,38,1))}
+    .ghost{background:rgba(255,255,255,.04)}
+    .miniBtn{padding:8px 10px; border-radius:12px; font-size:12px; font-weight:950;}
+
+    .grid{margin-top:14px; display:grid; grid-template-columns: 1fr; gap:14px;}
+    @media(min-width:980px){ .grid{grid-template-columns: 1.15fr .85fr;} }
+
+    .card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(18,27,46,.92), rgba(15,23,42,.88));
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card h2{
+      margin:0; padding:14px 14px 10px;
+      font-size:15px; letter-spacing:.2px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+      flex-wrap:wrap;
+    }
+    .sub{font-size:12px; color:var(--muted); font-weight:700}
+    .content{padding:14px}
+    .row{display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:10px}
+    @media(min-width:640px){ .row.two{grid-template-columns:1fr 1fr} }
+    @media(min-width:780px){ .row.three{grid-template-columns:1fr 1fr 1fr} }
+    label{display:block; font-size:12px; color:var(--muted); margin:0 0 6px}
+    input,select,textarea{
+      width:100%;
+      padding:10px 11px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(238,242,255,.40)}
+    .divider{height:1px; background:var(--line); margin:12px 0}
+    .small{font-size:12px; color:var(--muted)}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+    .inlineBtns{display:flex; gap:8px; flex-wrap:wrap}
+
+    .checklist{display:grid; grid-template-columns:1fr; gap:10px;}
+    .item{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:10px;
+    }
+    .itemTop{display:flex; gap:10px; align-items:flex-start;}
+    .itemTop input[type="checkbox"]{width:18px; height:18px; margin-top:2px; accent-color: var(--ok);}
+    .itemTitle{font-weight:950; font-size:13px; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .itemHelp{margin:2px 0 0; font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .miniRow{margin-top:8px; display:grid; grid-template-columns:1fr; gap:8px;}
+    @media(min-width:680px){ .miniRow.two{grid-template-columns:1fr 1fr} }
+
+    .photoGrid{display:grid; grid-template-columns:1fr; gap:10px;}
+    @media(min-width:640px){ .photoGrid{grid-template-columns:1fr 1fr;} }
+    .photoBox{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:10px;
+    }
+    .photoTop{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px;}
+    .photoTop .name{font-weight:950; font-size:13px}
+    .thumb{
+      width:100%;
+      aspect-ratio: 4 / 3;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .thumb img{width:100%; height:100%; object-fit:cover; display:none;}
+    .thumb .placeholder{color:rgba(238,242,255,.55); font-size:12px; padding:10px; text-align:center;}
+
+    .table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .table th,.table td{
+      padding:10px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      vertical-align:top;
+      font-size:12px;
+    }
+    .table th{
+      color:var(--muted);
+      text-align:left;
+      background:rgba(0,0,0,.16);
+      font-weight:950;
+    }
+    .table tr:last-child td{border-bottom:none}
+    .table input,.table select{padding:8px 9px; border-radius:10px;}
+
+    .rightCol .card{position:sticky; top:14px}
+
+    .histTop{display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:space-between;}
+    .histTop .left{flex:1; min-width:200px;}
+    .histList{display:flex; flex-direction:column; gap:8px; margin-top:10px;}
+    .histItem{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:10px;
+      display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
+    }
+    .histMeta{min-width:0}
+    .histMeta .t{
+      font-weight:950; font-size:13px; margin:0;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .histMeta .s{
+      margin:3px 0 0; font-size:12px; color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .histBtns{display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end}
+
+    .reportWrap{padding:14px}
+    .reportPreview{
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(18,27,46,.94), rgba(15,23,42,.90));
+      border-radius:18px;
+      padding:18px;
+    }
+    .reportHeader{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      padding-bottom:12px; margin-bottom:12px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      flex-wrap:wrap;
+    }
+    .reportHeader h3{margin:0; font-size:16px}
+    .reportHeader .tag{font-size:12px; color:var(--muted); margin-top:3px}
+    .reportBox{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:12px;
+      margin:10px 0;
+    }
+    .reportBox h4{margin:0 0 8px; font-size:12px; color:var(--muted); letter-spacing:.2px}
+    .reportText{
+      white-space:pre-wrap;
+      word-break:break-word;
+      line-height:1.4;
+      font-size:14px;
+      color:rgba(238,242,255,.94);
+    }
+
+    .exportHost{
+      position: fixed;
+      left: -99999px;
+      top: 0;
+      width: 1400px;
+      padding: 16px;
+      background: transparent;
+      z-index: -1;
+    }
+    .exportHost .reportPreview{ width: 1400px; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="mark" title="BF Outdoor Services">BF</div>
+        <div class="title">
+          <h1>Pool Maintenance Checklist</h1>
+          <p>Tasks editable inline • “Needs Attention” auto-populates Issues (with comments)</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="ghost" id="btnNewVisit" type="button">New Visit</button>
+        <button class="success" id="btnFinish" type="button">Finish Visit / Save Record</button>
+        <button class="primary" id="btnShare" type="button">Share Report</button>
+        <button class="ghost" id="btnExport" type="button">Export JSON</button>
+        <label class="btn ghost" for="importFile" style="display:inline-flex;align-items:center;gap:8px;">Import JSON</label>
+        <input id="importFile" type="file" accept="application/json" style="display:none" />
+        <button class="danger" id="btnResetAll" type="button">Reset</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="leftCol">
+        <div class="card">
+          <h2>1) Job Info <span class="sub">Customer, site, tech</span></h2>
+          <div class="content">
+            <div class="row two">
+              <div><label>Customer Name</label><input data-k="job.customer" placeholder="e.g., Emberton, Steve" /></div>
+              <div><label>Service Address</label><input data-k="job.address" placeholder="Street, City, State" /></div>
+            </div>
+            <div class="row three">
+              <div><label>Date</label><input data-k="job.date" type="date" /></div>
+              <div><label>Time</label><input data-k="job.time" type="time" /></div>
+              <div><label>Technician</label><input data-k="job.tech" placeholder="Tech name" /></div>
+            </div>
+            <span class="pill">Report exports from the <b>text template</b> at <b>1400px wide</b>.</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Photos <span class="sub">Before + After</span></h2>
+          <div class="content">
+            <div class="photoGrid">
+              <div class="photoBox">
+                <div class="photoTop">
+                  <div class="name">Before Photo</div>
+                  <div class="inlineBtns">
+                    <label class="btn ghost" for="beforeFile">Add</label>
+                    <button class="ghost" type="button" id="beforeClear">Clear</button>
+                  </div>
+                </div>
+                <input id="beforeFile" type="file" accept="image/*" capture="environment" style="display:none" />
+                <div class="thumb">
+                  <img id="beforeImg" alt="Before preview" />
+                  <div class="placeholder" id="beforePh">No before photo added.</div>
+                </div>
+              </div>
+
+              <div class="photoBox">
+                <div class="photoTop">
+                  <div class="name">After Photo</div>
+                  <div class="inlineBtns">
+                    <label class="btn ghost" for="afterFile">Add</label>
+                    <button class="ghost" type="button" id="afterClear">Clear</button>
+                  </div>
+                </div>
+                <input id="afterFile" type="file" accept="image/*" capture="environment" style="display:none" />
+                <div class="thumb">
+                  <img id="afterImg" alt="After preview" />
+                  <div class="placeholder" id="afterPh">No after photo added.</div>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="small">Photos are embedded in the report image and saved with the record.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>2) Water Test <span class="sub">Readings + adjustments</span></h2>
+          <div class="content">
+            <div class="row three">
+              <div><label>FC</label><input data-k="water.fc" inputmode="decimal" placeholder="ppm" /></div>
+              <div><label>TC (Total Chlorine)</label><input data-k="water.tc" inputmode="decimal" placeholder="ppm" /></div>
+              <div><label>pH</label><input data-k="water.ph" inputmode="decimal" placeholder="e.g., 7.5" /></div>
+            </div>
+            <div class="row three">
+              <div><label>TA</label><input data-k="water.ta" inputmode="decimal" placeholder="ppm" /></div>
+              <div><label>CH</label><input data-k="water.ch" inputmode="decimal" placeholder="ppm" /></div>
+              <div><label>CYA</label><input data-k="water.cya" inputmode="decimal" placeholder="ppm" /></div>
+            </div>
+            <div class="row three">
+              <div><label>Salt</label><input data-k="water.salt" inputmode="decimal" placeholder="ppm" /></div>
+              <div><label>Temp</label><input data-k="water.temp" inputmode="decimal" placeholder="°F" /></div>
+              <div><label>Phosphates (opt)</label><input data-k="water.phos" inputmode="decimal" placeholder="ppb" /></div>
+            </div>
+            <div>
+              <label>Adjustments Made</label>
+              <textarea data-k="water.adjustments" placeholder="What was added/changed and why…"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3) Cleaning <span class="sub">Editable tasks</span></h2>
+          <div class="content"><div class="checklist" id="cleaningList"></div></div>
+        </div>
+
+        <div class="card">
+          <h2>4) Equipment Check <span class="sub">Editable tasks</span></h2>
+          <div class="content"><div class="checklist" id="equipmentList"></div></div>
+        </div>
+
+        <div class="card">
+          <h2>5) Visual / Safety <span class="sub">Editable tasks</span></h2>
+          <div class="content"><div class="checklist" id="visualList"></div></div>
+        </div>
+
+        <div class="card">
+          <h2>6) Chemicals Added <span class="sub">Product + amount</span></h2>
+          <div class="content">
+            <table class="table" id="chemTable">
+              <thead>
+                <tr>
+                  <th style="width:26%">Product</th>
+                  <th style="width:16%">Amount</th>
+                  <th style="width:18%">Unit</th>
+                  <th style="width:40%">Notes</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div class="divider"></div>
+            <div class="inlineBtns">
+              <button class="ghost" id="chemAdd" type="button">+ Add Row</button>
+              <button class="ghost" id="chemClear" type="button">Clear Rows</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>7) Issues / Recommendations <span class="sub">Auto-filled from “Needs Attention” + your notes</span></h2>
+          <div class="content">
+            <div class="row two">
+              <div>
+                <label>Priority</label>
+                <select data-k="issues.priority">
+                  <option value="">Select…</option>
+                  <option>Low (monitor)</option>
+                  <option>Medium (schedule soon)</option>
+                  <option>High (needs attention)</option>
+                  <option>Urgent (ASAP)</option>
+                </select>
+              </div>
+              <div><label>Estimated Cost Range (opt)</label><input data-k="issues.estimate" placeholder="e.g., $150–$300" /></div>
+            </div>
+            <div>
+              <label>Issues Found / Recommendations</label>
+              <textarea data-k="issues.notes" placeholder="Type any manual notes here… AUTO section will appear below."></textarea>
+              <div class="small" style="margin-top:8px;">
+                Tip: Mark any task “Needs Attention” and add task notes — both will appear in Issues.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>8) Customer Notes + Tech Signature <span class="sub">Clear summary</span></h2>
+          <div class="content">
+            <div><label>Customer Notes / Summary</label><textarea data-k="customer.summary" placeholder="What the customer should know…"></textarea></div>
+            <div class="row two">
+              <div><label>Tech Signature</label><input data-k="customer.signature" placeholder="Type full name" /></div>
+              <div><label>Customer Acknowledgement (opt)</label><input data-k="customer.ack" placeholder="Customer initials / name" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rightCol">
+        <div class="card">
+          <h2>Visit History <span class="sub">Saved by Finish Visit</span></h2>
+          <div class="content">
+            <div class="histTop">
+              <div class="left">
+                <label>Search</label>
+                <input id="histSearch" placeholder="Search customer, address, tech…" />
+              </div>
+              <div style="min-width:220px;">
+                <label>Records</label>
+                <input id="histCount" readonly />
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="inlineBtns">
+              <button class="ghost miniBtn" id="btnClearHistory" type="button">Clear History</button>
+            </div>
+            <div class="histList" id="histList"></div>
+            <p class="small" style="margin:10px 0 0;">History is stored on this device/browser.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Report Preview <span class="sub">This is exactly what gets shared</span></h2>
+          <div class="reportWrap">
+            <div class="reportPreview" id="reportArea">
+              <div class="reportHeader">
+                <div>
+                  <h3>BF Outdoor Services • Pool Maintenance Report</h3>
+                  <div class="tag" id="rpTag">Customer • Date</div>
+                </div>
+                <div class="tag" id="rpMeta">Generated from checklist</div>
+              </div>
+
+              <div class="reportBox"><h4>Customer</h4><div class="reportText" id="rpCustomer"></div></div>
+              <div class="reportBox"><h4>Water Test Results</h4><div class="reportText" id="rpWater"></div></div>
+              <div class="reportBox"><h4>Completed Tasks (checked only)</h4><div class="reportText" id="rpTasks"></div></div>
+              <div class="reportBox"><h4>Chemicals Added</h4><div class="reportText" id="rpChems"></div></div>
+              <div class="reportBox"><h4>Issues / Recommendations</h4><div class="reportText" id="rpIssues"></div></div>
+              <div class="reportBox"><h4>Customer Notes</h4><div class="reportText" id="rpNotes"></div></div>
+
+              <div class="reportBox">
+                <h4>Before / After Photos</h4>
+                <div class="photoGrid">
+                  <div class="photoBox">
+                    <div class="photoTop"><div class="name">Before</div></div>
+                    <div class="thumb">
+                      <img id="rpBeforeImg" alt="Before in report" />
+                      <div class="placeholder" id="rpBeforePh">No before photo.</div>
+                    </div>
+                  </div>
+                  <div class="photoBox">
+                    <div class="photoTop"><div class="name">After</div></div>
+                    <div class="thumb">
+                      <img id="rpAfterImg" alt="After in report" />
+                      <div class="placeholder" id="rpAfterPh">No after photo.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="small" style="margin-top:10px; opacity:.85;">
+                As always, thank you for choosing BF Outdoor Services.
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="small"><b>Share Report</b> message: header + date + “please review attached report…”</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script>
+    const KEY_TASKS   = "bf_pm_tasks_v5";
+    const KEY_HISTORY = "bf_pm_history_v5";
+    const KEY_DRAFT   = "bf_pm_draft_v5";
+
+    const DEFAULT_TASKS = {
+      cleaning: [
+        { title:"Skim surface", help:"Remove leaves/debris from surface." },
+        { title:"Brush walls/steps", help:"Brush problem areas, steps, tile line." },
+        { title:"Vacuum / robot cycle", help:"Vacuum pool or run cleaner and confirm movement." },
+        { title:"Net bottom debris", help:"Leaf rake if needed." },
+        { title:"Empty skimmer & pump baskets", help:"Remove debris; inspect baskets for damage." },
+        { title:"Wipe waterline (as needed)", help:"Spot clean oils/dirt at tile line." },
+        { title:"Backwash / clean filter (if needed)", help:"Record PSI before/after if done." }
+      ],
+      equipment: [
+        { title:"Pump running / prime OK", help:"No air leaks; normal sound." },
+        { title:"Filter PSI normal", help:"Record PSI; note if rising quickly." },
+        { title:"Heater operation check (if present)", help:"No error codes; verify ignition/flow." },
+        { title:"Salt system (SWG) status", help:"Check % output, lights, cell condition." },
+        { title:"Timer/automation schedule verified", help:"Correct run times; adjust if needed." },
+        { title:"Valves set correctly", help:"Skimmer/main drain/features as desired." },
+        { title:"Visual leak check", help:"Pad plumbing, pump seal, filter, heater unions." }
+      ],
+      visual: [
+        { title:"Water clarity", help:"Clear / hazy / cloudy — note in comments." },
+        { title:"Algae check", help:"Steps, corners, returns, deep end." },
+        { title:"Stains / scale", help:"Metal stains, calcium scale, plaster spotting." },
+        { title:"Deck hazards", help:"Trip hazards, slippery areas, drainage issues." },
+        { title:"Fence/gate (if applicable)", help:"Gate closes/latches; barrier noted." }
+      ]
+    };
+
+    const $ = (sel, el=document) => el.querySelector(sel);
+    const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+    function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
+
+    function setByPath(obj, path, val){
+      const parts = path.split(".");
+      let cur = obj;
+      for(let i=0;i<parts.length-1;i++){
+        cur[parts[i]] = cur[parts[i]] || {};
+        cur = cur[parts[i]];
+      }
+      cur[parts[parts.length-1]] = val;
+    }
+    function getByPath(obj, path){
+      const parts = path.split(".");
+      let cur = obj;
+      for(const p of parts){
+        if(cur == null) return "";
+        cur = cur[p];
+      }
+      return cur ?? "";
+    }
+    function escapeHTML(s){
+      return String(s ?? "")
+        .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+    }
+    function pad(n){ return String(n).padStart(2,"0"); }
+    function fmtDate(d){ return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+    function fmtTime(d){ return `${pad(d.getHours())}:${pad(d.getMinutes())}`; }
+    function fmtWhen(ts){ const d=new Date(ts); return `${fmtDate(d)} ${fmtTime(d)}`; }
+    function safeFileName(s){
+      return (s||"").toString().trim()
+        .replaceAll(/[^a-zA-Z0-9]+/g,"_")
+        .replaceAll(/^_+|_+$/g,"")
+        .slice(0,60) || "Customer";
+    }
+
+    function loadTasks(){
+      const raw = localStorage.getItem(KEY_TASKS);
+      if(!raw) return deepClone(DEFAULT_TASKS);
+      try{
+        const t = JSON.parse(raw);
+        if(!t?.cleaning || !t?.equipment || !t?.visual) throw new Error("bad");
+        return t;
+      }catch{
+        return deepClone(DEFAULT_TASKS);
+      }
+    }
+    function saveTasks(tasks){ localStorage.setItem(KEY_TASKS, JSON.stringify(tasks)); }
+    let TASKS = loadTasks();
+
+    function slugKey(section, idx){ return `task.${section}.${idx}`; }
+
+    function renderList(containerId, sectionName, items){
+      const wrap = document.getElementById(containerId);
+      wrap.innerHTML = "";
+
+      items.forEach((it, idx)=>{
+        const baseKey = slugKey(sectionName, idx);
+        const el = document.createElement("div");
+        el.className = "item";
+        el.innerHTML = `
+          <div class="itemTop">
+            <input type="checkbox" data-k="${baseKey}.done" data-task="1" />
+            <div style="flex:1; min-width:0">
+              <div style="display:flex; gap:8px; align-items:flex-start; justify-content:space-between;">
+                <div style="min-width:0">
+                  <p class="itemTitle" title="${escapeHTML(it.title)}">${escapeHTML(it.title)}</p>
+                  <p class="itemHelp" title="${escapeHTML(it.help || "")}">${escapeHTML(it.help || "")}</p>
+                </div>
+                <div class="inlineBtns" style="margin-top:-2px;">
+                  <button class="ghost miniBtn" type="button"
+                    data-task-action="edit"
+                    data-section="${sectionName}"
+                    data-index="${idx}">Edit</button>
+                  <button class="danger miniBtn" type="button"
+                    data-task-action="delete"
+                    data-section="${sectionName}"
+                    data-index="${idx}">Del</button>
+                </div>
+              </div>
+
+              <div class="miniRow two">
+                <div>
+                  <label style="margin-top:6px;">Notes (optional)</label>
+                  <input data-k="${baseKey}.note" placeholder="Add details if needed…" />
+                </div>
+                <div>
+                  <label style="margin-top:6px;">Status</label>
+                  <select data-k="${baseKey}.status">
+                    <option value="">—</option>
+                    <option>OK</option>
+                    <option>Needs Attention</option>
+                    <option>Not Applicable</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        wrap.appendChild(el);
+      });
+
+      const addRow = document.createElement("div");
+      addRow.className = "inlineBtns";
+      addRow.style.marginTop = "10px";
+      addRow.innerHTML = `
+        <button class="ghost" type="button" data-task-action="add" data-section="${sectionName}">
+          + Add Task
+        </button>
+      `;
+      wrap.appendChild(addRow);
+    }
+
+    function editTask(section, index){
+      const t = TASKS?.[section]?.[index];
+      if(!t) return;
+
+      const newTitle = prompt("Task title:", t.title || "");
+      if(newTitle === null) return;
+      const title = newTitle.trim();
+      if(!title){ alert("Title cannot be blank."); return; }
+
+      const newHelp = prompt("Help / description (optional):", t.help || "");
+      if(newHelp === null) return;
+
+      TASKS[section][index] = { title, help: (newHelp || "").trim() };
+      saveTasks(TASKS);
+      renderAll();
+      toast("Task updated.");
+    }
+
+    function deleteTask(section, index){
+      const t = TASKS?.[section]?.[index];
+      if(!t) return;
+      const ok = confirm(`Delete this task?\n\n${t.title}`);
+      if(!ok) return;
+
+      TASKS[section].splice(index, 1);
+      if(!TASKS[section].length){
+        TASKS[section].push({ title:"(Add a task)", help:"" });
+      }
+      saveTasks(TASKS);
+      renderAll();
+      toast("Task deleted.");
+    }
+
+    function addTask(section){
+      const title = prompt("New task title:");
+      if(title === null) return;
+      const t = title.trim();
+      if(!t) return;
+
+      const help = prompt("Help / description (optional):") || "";
+      TASKS[section].push({ title: t, help: help.trim() });
+
+      saveTasks(TASKS);
+      renderAll();
+      toast("Task added.");
+    }
+
+    function renderAll(){
+      renderList("cleaningList","cleaning", TASKS.cleaning);
+      renderList("equipmentList","equipment", TASKS.equipment);
+      renderList("visualList","visual", TASKS.visual);
+      syncReport();
+    }
+
+    // ✅ AUTO issues now include the task note/comment so customer sees it
+    function buildAutoIssuesFromTasks(){
+      const lines = [];
+      const sections = [
+        { name:"Cleaning",  key:"cleaning" },
+        { name:"Equipment", key:"equipment" },
+        { name:"Visual",    key:"visual" }
+      ];
+
+      sections.forEach(sec=>{
+        const items = TASKS[sec.key] || [];
+        items.forEach((t, idx)=>{
+          const statusSel = document.querySelector(`[data-k="task.${sec.key}.${idx}.status"]`);
+          if(!statusSel) return;
+          if((statusSel.value || "").trim() !== "Needs Attention") return;
+
+          const noteEl = document.querySelector(`[data-k="task.${sec.key}.${idx}.note"]`);
+          const note = (noteEl?.value || "").trim();
+
+          // Customer-facing format: include the note if present
+          lines.push(`- [${sec.name}] ${t.title}${note ? ` — ${note}` : ""}`);
+        });
+      });
+
+      if(!lines.length) return "";
+      return `AUTO (Needs Attention)\n${lines.join("\n")}`;
+    }
+
+    const PHOTO = { before:"", after:"" };
+    async function fileToDataUrl(file, maxDim=1600, quality=0.86){
+      const bmp = await createImageBitmap(file);
+      let { width, height } = bmp;
+      const scale = Math.min(1, maxDim / Math.max(width, height));
+      width = Math.round(width * scale);
+      height = Math.round(height * scale);
+      const c = document.createElement("canvas");
+      c.width = width; c.height = height;
+      c.getContext("2d").drawImage(bmp, 0, 0, width, height);
+      return c.toDataURL("image/jpeg", quality);
+    }
+    function setPhoto(which, dataUrl){
+      PHOTO[which] = dataUrl || "";
+      const img = document.getElementById(which + "Img");
+      const ph  = document.getElementById(which + "Ph");
+      if(PHOTO[which]){
+        img.src = PHOTO[which]; img.style.display="block"; ph.style.display="none";
+      }else{
+        img.removeAttribute("src"); img.style.display="none"; ph.style.display="block";
+      }
+      const rImg = document.getElementById("rp" + (which==="before"?"Before":"After") + "Img");
+      const rPh  = document.getElementById("rp" + (which==="before"?"Before":"After") + "Ph");
+      if(PHOTO[which]){
+        rImg.src = PHOTO[which]; rImg.style.display="block"; rPh.style.display="none";
+      }else{
+        rImg.removeAttribute("src"); rImg.style.display="none"; rPh.style.display="block";
+      }
+      syncReport();
+    }
+    $("#beforeFile").addEventListener("change", async (e)=>{
+      const f=e.target.files?.[0]; if(!f) return;
+      setPhoto("before", await fileToDataUrl(f));
+      e.target.value="";
+    });
+    $("#afterFile").addEventListener("change", async (e)=>{
+      const f=e.target.files?.[0]; if(!f) return;
+      setPhoto("after", await fileToDataUrl(f));
+      e.target.value="";
+    });
+    $("#beforeClear").addEventListener("click", ()=> setPhoto("before",""));
+    $("#afterClear").addEventListener("click", ()=> setPhoto("after",""));
+
+    const chemBody = $("#chemTable tbody");
+    function addChemRow(row={product:"",amount:"",unit:"",notes:""}){
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><input data-chem="product" placeholder="e.g., Liquid Chlorine" value="${escapeHTML(row.product)}"></td>
+        <td><input data-chem="amount" placeholder="e.g., 1.5" value="${escapeHTML(row.amount)}"></td>
+        <td>
+          <select data-chem="unit">
+            ${["—","gal","qt","lb","oz","cups","ppm target"].map(u=>`<option ${u===row.unit?"selected":""}>${u}</option>`).join("")}
+          </select>
+        </td>
+        <td><input data-chem="notes" placeholder="Reason / method" value="${escapeHTML(row.notes)}"></td>
+      `;
+      chemBody.appendChild(tr);
+    }
+    $("#chemAdd").addEventListener("click", ()=>{ addChemRow(); syncReport(); });
+    $("#chemClear").addEventListener("click", ()=>{
+      if(confirm("Clear all chemical rows?")){
+        chemBody.innerHTML=""; addChemRow(); syncReport();
+      }
+    });
+    addChemRow();
+
+    function collect(){
+      const data = { version:5, ts: Date.now(), tasks: TASKS, photos: {before:PHOTO.before, after:PHOTO.after} };
+      $$("[data-k]").forEach(el=>{
+        const key = el.getAttribute("data-k");
+        const val = (el.type === "checkbox") ? !!el.checked : (el.value ?? "");
+        setByPath(data, key, val);
+      });
+      const chems=[];
+      $$("#chemTable tbody tr").forEach(tr=>{
+        const r={};
+        $$("[data-chem]", tr).forEach(inp=>{
+          r[inp.getAttribute("data-chem")] = inp.value ?? "";
+        });
+        const any = (r.product||"").trim() || (r.amount||"").trim() || (r.notes||"").trim();
+        if(any) chems.push(r);
+      });
+      data.chems=chems;
+      return data;
+    }
+    function apply(data){
+      if(data?.tasks?.cleaning && data?.tasks?.equipment && data?.tasks?.visual){
+        TASKS = data.tasks;
+        saveTasks(TASKS);
+      }
+      renderAll();
+      $$("[data-k]").forEach(el=>{
+        const key = el.getAttribute("data-k");
+        const val = getByPath(data, key);
+        if(el.type === "checkbox") el.checked = !!val;
+        else el.value = val ?? "";
+      });
+      chemBody.innerHTML="";
+      if(Array.isArray(data.chems) && data.chems.length) data.chems.forEach(r=>addChemRow(r));
+      else addChemRow();
+      setPhoto("before", data.photos?.before || "");
+      setPhoto("after",  data.photos?.after  || "");
+      syncReport();
+    }
+
+    function checkedTaskList(){
+      const titles=[];
+      $$('.checklist input[type="checkbox"][data-task="1"]:checked').forEach(cb=>{
+        const t = cb.closest(".item")?.querySelector(".itemTitle");
+        if(t) titles.push(t.textContent.trim());
+      });
+      return titles;
+    }
+    function chemicalsSummary(data){
+      if(!Array.isArray(data.chems) || !data.chems.length) return "—";
+      return data.chems.map(r=>{
+        const prod=(r.product||"").trim();
+        const amt=(r.amount||"").trim();
+        const unit=(r.unit||"").trim();
+        const notes=(r.notes||"").trim();
+        const u = (unit && unit!=="—") ? ` ${unit}` : "";
+        const main = `${prod}${amt ? ` • ${amt}${u}` : ""}`.trim();
+        return notes ? `${main} (${notes})` : main;
+      }).join("\n");
+    }
+
+    function issuesSummary(data){
+      const pr = (getByPath(data,"issues.priority")||"").trim() || "—";
+      const est = (getByPath(data,"issues.estimate")||"").trim();
+      const notes = (getByPath(data,"issues.notes")||"").trim();
+      let head = `Priority: ${pr}`;
+      if(est) head += ` • Est: ${est}`;
+      return notes ? `${head}\n${notes}` : `${head}\n—`;
+    }
+
+    function syncReport(){
+      const data = collect();
+
+      // AUTO inject Needs Attention items into issues.notes (keeps manual notes above it)
+      const auto = buildAutoIssuesFromTasks();
+      const notesPath = "issues.notes";
+      const current = (getByPath(data, notesPath) || "").toString();
+      const startTag = "AUTO (Needs Attention)";
+      let manual = current;
+
+      if(current.includes(startTag)){
+        manual = current.split(startTag)[0].trim();
+      }
+
+      let combined = manual;
+      if(auto){
+        combined = (combined ? combined + "\n\n" : "") + auto;
+      }
+
+      const issuesBox = document.querySelector(`[data-k="${notesPath}"]`);
+      if(issuesBox && issuesBox.value !== combined){
+        issuesBox.value = combined;
+      }
+      setByPath(data, notesPath, combined);
+
+      const cust = (getByPath(data,"job.customer")||"").trim() || "—";
+      const addr = (getByPath(data,"job.address")||"").trim() || "—";
+      const date = (getByPath(data,"job.date")||"").trim() || "—";
+      const time = (getByPath(data,"job.time")||"").trim();
+      const tech = (getByPath(data,"job.tech")||"").trim() || "—";
+
+      $("#rpTag").textContent = `${cust} • ${date}`;
+      $("#rpMeta").textContent = `Generated ${fmtWhen(Date.now())}`;
+
+      $("#rpCustomer").textContent =
+`Customer: ${cust}
+Address: ${addr}
+Date/Time: ${date}${time?` ${time}`:""}
+Technician: ${tech}`;
+
+      $("#rpWater").textContent =
+`FC: ${getByPath(data,"water.fc")||"—"}    TC: ${getByPath(data,"water.tc")||"—"}    pH: ${getByPath(data,"water.ph")||"—"}
+TA: ${getByPath(data,"water.ta")||"—"}    CH: ${getByPath(data,"water.ch")||"—"}    CYA: ${getByPath(data,"water.cya")||"—"}
+Salt: ${getByPath(data,"water.salt")||"—"}    Temp: ${getByPath(data,"water.temp")||"—"}    Phos: ${getByPath(data,"water.phos")||"—"}
+
+Adjustments Made:
+${(getByPath(data,"water.adjustments")||"").trim() || "—"}`;
+
+      const tasks = checkedTaskList();
+      $("#rpTasks").textContent = tasks.length ? tasks.map(t=>`• ${t}`).join("\n") : "—";
+
+      $("#rpChems").textContent = chemicalsSummary(data);
+      $("#rpIssues").textContent = issuesSummary(data);
+
+      $("#rpNotes").textContent =
+`${((getByPath(data,"customer.summary")||"").trim() || "—")}
+\n\nSignature: ${((getByPath(data,"customer.signature")||"").trim() || "—")}
+Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—")}`;
+
+      localStorage.setItem(KEY_DRAFT, JSON.stringify(data));
+    }
+
+    function loadHistory(){
+      const raw = localStorage.getItem(KEY_HISTORY);
+      if(!raw) return [];
+      try{ const arr = JSON.parse(raw); return Array.isArray(arr) ? arr : []; }catch{ return []; }
+    }
+    function saveHistory(arr){ localStorage.setItem(KEY_HISTORY, JSON.stringify(arr)); }
+    let HISTORY = loadHistory();
+    let ACTIVE_ID = null;
+
+    function recordTitle(rec){
+      const c = getByPath(rec,"job.customer") || "Customer";
+      const d = getByPath(rec,"job.date") || fmtDate(new Date(rec.ts || Date.now()));
+      return `${c} • ${d}`;
+    }
+    function recordSubtitle(rec){
+      const addr = getByPath(rec,"job.address") || "Address";
+      const tech = getByPath(rec,"job.tech") || "Tech";
+      const when = fmtWhen(rec.ts || Date.now());
+      return `${when} • ${tech} • ${addr}`;
+    }
+    function renderHistory(){
+      const q = ($("#histSearch").value || "").trim().toLowerCase();
+      const list = $("#histList");
+      list.innerHTML = "";
+
+      const shown = HISTORY
+        .slice()
+        .sort((a,b)=>(b.ts||0)-(a.ts||0))
+        .filter(rec=>{
+          if(!q) return true;
+          const hay = [
+            getByPath(rec,"job.customer"),
+            getByPath(rec,"job.address"),
+            getByPath(rec,"job.tech")
+          ].join(" ").toLowerCase();
+          return hay.includes(q);
+        });
+
+      $("#histCount").value = `${HISTORY.length} saved • ${shown.length} shown`;
+
+      if(!shown.length){
+        const empty = document.createElement("div");
+        empty.className="small";
+        empty.textContent="No matching records yet. Use Finish Visit to create one.";
+        list.appendChild(empty);
+        return;
+      }
+
+      shown.forEach(rec=>{
+        const item = document.createElement("div");
+        item.className="histItem";
+        item.innerHTML = `
+          <div class="histMeta">
+            <p class="t">${escapeHTML(recordTitle(rec))}${rec.id===ACTIVE_ID ? " • (open)" : ""}</p>
+            <p class="s">${escapeHTML(recordSubtitle(rec))}</p>
+          </div>
+          <div class="histBtns">
+            <button class="ghost miniBtn" data-act="open" data-id="${rec.id}">Open</button>
+            <button class="ghost miniBtn" data-act="dup" data-id="${rec.id}">Duplicate</button>
+            <button class="danger miniBtn" data-act="del" data-id="${rec.id}">Delete</button>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+    function upsertRecord(rec){
+      const idx = HISTORY.findIndex(r=>r.id===rec.id);
+      if(idx>=0) HISTORY[idx]=rec; else HISTORY.push(rec);
+      if(HISTORY.length>200){
+        HISTORY = HISTORY.sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,200);
+      }
+      saveHistory(HISTORY);
+      renderHistory();
+    }
+    function finishVisit(){
+      syncReport(); // ensure AUTO issues applied before save
+      const data = collect();
+      const cust = (getByPath(data,"job.customer")||"").trim();
+      const date = (getByPath(data,"job.date")||"").trim();
+      const tech = (getByPath(data,"job.tech")||"").trim();
+      if(!cust || !date || !tech){
+        const ok = confirm("Customer, Date, or Tech is blank. Save record anyway?");
+        if(!ok) return;
+      }
+      const now = Date.now();
+      const rec = { ...data, id:`rec_${now}_${Math.random().toString(16).slice(2)}`, ts: now };
+      upsertRecord(rec);
+      ACTIVE_ID = rec.id;
+      toast("Saved record to history.");
+      const goNext = confirm("Record saved. Start a NEW visit now (clear form)?");
+      if(goNext) newVisit();
+      else renderHistory();
+    }
+    function newVisit(){
+      $$("[data-k]").forEach(el=>{ if(el.type==="checkbox") el.checked=false; else el.value=""; });
+      chemBody.innerHTML=""; addChemRow();
+      setPhoto("before",""); setPhoto("after","");
+      setDefaults();
+      ACTIVE_ID=null;
+      syncReport();
+      renderHistory();
+      toast("Ready for next visit.");
+    }
+    function openRecord(id){
+      const rec = HISTORY.find(r=>r.id===id);
+      if(!rec) return;
+      ACTIVE_ID=id;
+      apply(rec);
+      toast("Opened record.");
+      renderHistory();
+    }
+    function deleteRecord(id){
+      const rec = HISTORY.find(r=>r.id===id);
+      if(!rec) return;
+      const ok = confirm(`Delete this record?\n\n${recordTitle(rec)}`);
+      if(!ok) return;
+      HISTORY = HISTORY.filter(r=>r.id!==id);
+      if(ACTIVE_ID===id) ACTIVE_ID=null;
+      saveHistory(HISTORY);
+      renderHistory();
+      toast("Record deleted.");
+    }
+    function duplicateRecord(id){
+      const rec = HISTORY.find(r=>r.id===id);
+      if(!rec) return;
+      const now = Date.now();
+      const copy = JSON.parse(JSON.stringify(rec));
+      copy.id = `rec_${now}_${Math.random().toString(16).slice(2)}`;
+      copy.ts = now;
+      upsertRecord(copy);
+      toast("Record duplicated.");
+    }
+    $("#histList").addEventListener("click",(e)=>{
+      const btn = e.target.closest("button[data-act]");
+      if(!btn) return;
+      const act = btn.getAttribute("data-act");
+      const id  = btn.getAttribute("data-id");
+      if(act==="open") openRecord(id);
+      if(act==="dup") duplicateRecord(id);
+      if(act==="del") deleteRecord(id);
+    });
+    $("#histSearch").addEventListener("input", renderHistory);
+    $("#btnClearHistory").addEventListener("click", ()=>{
+      const ok = confirm("Clear ALL saved history on this device?");
+      if(!ok) return;
+      HISTORY=[]; ACTIVE_ID=null;
+      saveHistory(HISTORY);
+      renderHistory();
+      toast("History cleared.");
+    });
+
+    function exportJSON(){
+      const payload = { exportedAt: Date.now(), tasks: TASKS, history: HISTORY };
+      const filename = `BF_PM_HISTORY_${fmtDate(new Date())}.json`;
+      const blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json"});
+      const url = URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url; a.download=filename;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+    async function importJSON(file){
+      try{
+        const payload = JSON.parse(await file.text());
+        if(payload.tasks){ TASKS = payload.tasks; saveTasks(TASKS); }
+        if(Array.isArray(payload.history)){ HISTORY = payload.history; saveHistory(HISTORY); }
+        renderAll(); renderHistory();
+        toast("Imported tasks + history.");
+      }catch{
+        alert("Could not import that file.");
+      }
+    }
+
+    async function captureReportBlob(){
+      syncReport();
+      const source = document.getElementById("reportArea");
+      const host = document.createElement("div");
+      host.className = "exportHost";
+      document.body.appendChild(host);
+      const clone = source.cloneNode(true);
+      host.appendChild(clone);
+      await new Promise(r=>setTimeout(r, 90));
+      const canvas = await html2canvas(clone, { backgroundColor: null, scale: 2, useCORS: true });
+      host.remove();
+      return new Promise((resolve, reject)=>{
+        canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("toBlob failed")), "image/png");
+      });
+    }
+
+    async function shareReport(){
+      const data = collect();
+      const date = (getByPath(data,"job.date")||"").trim() || fmtDate(new Date());
+      const customerRaw = getByPath(data,"job.customer") || "Customer";
+      const customer = safeFileName(customerRaw);
+      const filename = `BF_Pool_Report_${customer}_${date}.png`;
+
+      const message =
+`BF Outdoor Services • Pool Maintenance Report
+Date: ${date}
+
+Please review the attached report from today’s service, and as always thank you for choosing BF Outdoor Services.`;
+
+      try{
+        const blob = await captureReportBlob();
+        const file = new File([blob], filename, { type:"image/png" });
+
+        if(navigator.canShare && navigator.canShare({ files:[file] }) && navigator.share){
+          await navigator.share({ title: "Pool Maintenance Report", text: message, files: [file] });
+          toast("Share sheet opened.");
+          return;
+        }
+
+        const url = URL.createObjectURL(blob);
+        const a=document.createElement("a");
+        a.href=url; a.download=filename;
+        document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+        alert("This browser can’t share files. The report image was downloaded instead.");
+      }catch{
+        toast("Share canceled or unavailable.");
+      }
+    }
+
+    function setDefaults(){
+      const dateEl = document.querySelector('[data-k="job.date"]');
+      const timeEl = document.querySelector('[data-k="job.time"]');
+      const now = new Date();
+      if(dateEl && !dateEl.value) dateEl.value = fmtDate(now);
+      if(timeEl && !timeEl.value) timeEl.value = fmtTime(now);
+    }
+    function resetAll(){
+      if(!confirm("Reset current form? (History stays)")) return;
+      newVisit();
+    }
+    let toastTimer=null;
+    function toast(msg){
+      clearTimeout(toastTimer);
+      let t = document.getElementById("toast");
+      if(!t){
+        t=document.createElement("div");
+        t.id="toast";
+        t.style.position="fixed";
+        t.style.left="50%";
+        t.style.bottom="18px";
+        t.style.transform="translateX(-50%)";
+        t.style.padding="10px 12px";
+        t.style.borderRadius="999px";
+        t.style.border="1px solid rgba(255,255,255,.18)";
+        t.style.background="rgba(0,0,0,.55)";
+        t.style.backdropFilter="blur(8px)";
+        t.style.color="rgba(238,242,255,.92)";
+        t.style.fontWeight="950";
+        t.style.fontSize="13px";
+        t.style.zIndex="9999";
+        document.body.appendChild(t);
+      }
+      t.textContent=msg;
+      t.style.opacity="1";
+      toastTimer=setTimeout(()=>{ t.style.opacity="0"; }, 2200);
+    }
+
+    $("#btnNewVisit").addEventListener("click", newVisit);
+    $("#btnFinish").addEventListener("click", finishVisit);
+    $("#btnShare").addEventListener("click", shareReport);
+    $("#btnExport").addEventListener("click", exportJSON);
+    $("#importFile").addEventListener("change", async (e)=>{
+      const f=e.target.files?.[0];
+      if(f) await importJSON(f);
+      e.target.value="";
+    });
+    $("#btnResetAll").addEventListener("click", resetAll);
+
+    document.addEventListener("click", (e)=>{
+      const b = e.target.closest("[data-task-action]");
+      if(!b) return;
+      const action = b.getAttribute("data-task-action");
+      const section = b.getAttribute("data-section");
+      const indexStr = b.getAttribute("data-index");
+      const index = indexStr != null ? parseInt(indexStr, 10) : null;
+
+      if(action === "edit")   return editTask(section, index);
+      if(action === "delete") return deleteTask(section, index);
+      if(action === "add")    return addTask(section);
+    });
+
+    document.addEventListener("input",(e)=>{ if(e.target.matches("[data-k],[data-chem]")) syncReport(); });
+    document.addEventListener("change",(e)=>{ if(e.target.matches("[data-k],[data-chem]")) syncReport(); });
+
+    function init(){
+      setDefaults();
+      renderAll();
+      const draftRaw = localStorage.getItem(KEY_DRAFT);
+      if(draftRaw){
+        try{ apply(JSON.parse(draftRaw)); }catch{}
+      }else{
+        setPhoto("before",""); setPhoto("after",""); syncReport();
+      }
+      renderHistory();
+    }
+    init();
+  </script>
+</body>
+</html>
