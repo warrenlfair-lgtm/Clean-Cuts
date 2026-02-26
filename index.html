@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BF Outdoor Services • Pool Maintenance Checklist</title>
+  <title>Clean Cut Yard Service • Lawn Service Checklist</title>
   <meta name="theme-color" content="#0b1220" />
   <style>
     :root{
@@ -15,8 +15,6 @@
       --blue:#3b82f6;
       --red:#ef4444;
       --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --r:18px;
-      --r2:14px;
       --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
     *{box-sizing:border-box}
@@ -260,9 +258,9 @@
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
-        <div class="mark" title="BF Outdoor Services">BF</div>
+        <div class="mark" title="Clean Cut Yard Service">CC</div>
         <div class="title">
-          <h1>Pool Maintenance Checklist</h1>
+          <h1>Lawn Service Checklist</h1>
           <p>Tasks editable inline • “Needs Attention” auto-populates Issues (with comments)</p>
         </div>
       </div>
@@ -281,16 +279,16 @@
     <div class="grid">
       <div class="leftCol">
         <div class="card">
-          <h2>1) Job Info <span class="sub">Customer, site, tech</span></h2>
+          <h2>1) Job Info <span class="sub">Customer, property, crew</span></h2>
           <div class="content">
             <div class="row two">
-              <div><label>Customer Name</label><input data-k="job.customer" placeholder="e.g., Emberton, Steve" /></div>
+              <div><label>Customer Name</label><input data-k="job.customer" placeholder="Customer name" /></div>
               <div><label>Service Address</label><input data-k="job.address" placeholder="Street, City, State" /></div>
             </div>
             <div class="row three">
               <div><label>Date</label><input data-k="job.date" type="date" /></div>
               <div><label>Time</label><input data-k="job.time" type="time" /></div>
-              <div><label>Technician</label><input data-k="job.tech" placeholder="Tech name" /></div>
+              <div><label>Crew Member</label><input data-k="job.tech" placeholder="Crew name" /></div>
             </div>
             <span class="pill">Report exports from the <b>text template</b> at <b>1400px wide</b>.</span>
           </div>
@@ -336,52 +334,61 @@
         </div>
 
         <div class="card">
-          <h2>2) Water Test <span class="sub">Readings + adjustments</span></h2>
+          <h2>2) Service Details <span class="sub">Notes + optional metrics</span></h2>
           <div class="content">
             <div class="row three">
-              <div><label>FC</label><input data-k="water.fc" inputmode="decimal" placeholder="ppm" /></div>
-              <div><label>TC (Total Chlorine)</label><input data-k="water.tc" inputmode="decimal" placeholder="ppm" /></div>
-              <div><label>pH</label><input data-k="water.ph" inputmode="decimal" placeholder="e.g., 7.5" /></div>
+              <div><label>Mow Height (in)</label><input data-k="details.mowHeight" inputmode="decimal" placeholder="e.g., 3.5" /></div>
+              <div><label>Bagging</label>
+                <select data-k="details.bagging">
+                  <option value="">Select…</option>
+                  <option>No</option>
+                  <option>Yes</option>
+                  <option>Partial</option>
+                </select>
+              </div>
+              <div><label>Weather</label><input data-k="details.weather" placeholder="e.g., Sunny" /></div>
             </div>
             <div class="row three">
-              <div><label>TA</label><input data-k="water.ta" inputmode="decimal" placeholder="ppm" /></div>
-              <div><label>CH</label><input data-k="water.ch" inputmode="decimal" placeholder="ppm" /></div>
-              <div><label>CYA</label><input data-k="water.cya" inputmode="decimal" placeholder="ppm" /></div>
-            </div>
-            <div class="row three">
-              <div><label>Salt</label><input data-k="water.salt" inputmode="decimal" placeholder="ppm" /></div>
-              <div><label>Temp</label><input data-k="water.temp" inputmode="decimal" placeholder="°F" /></div>
-              <div><label>Phosphates (opt)</label><input data-k="water.phos" inputmode="decimal" placeholder="ppb" /></div>
+              <div><label>Gate Access</label><input data-k="details.gate" placeholder="Open / Locked / Code" /></div>
+              <div><label>Pets Noted</label><input data-k="details.pets" placeholder="Yes / No" /></div>
+              <div><label>Clippings Collected</label>
+                <select data-k="details.clippings">
+                  <option value="">Select…</option>
+                  <option>Mulched</option>
+                  <option>Bagged</option>
+                  <option>Blown to natural areas</option>
+                </select>
+              </div>
             </div>
             <div>
-              <label>Adjustments Made</label>
-              <textarea data-k="water.adjustments" placeholder="What was added/changed and why…"></textarea>
+              <label>Work Notes</label>
+              <textarea data-k="details.notes" placeholder="What was done, what was noticed, what needs follow-up…"></textarea>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <h2>3) Cleaning <span class="sub">Editable tasks</span></h2>
-          <div class="content"><div class="checklist" id="cleaningList"></div></div>
+          <h2>3) Mow <span class="sub">Editable tasks</span></h2>
+          <div class="content"><div class="checklist" id="mowList"></div></div>
         </div>
 
         <div class="card">
-          <h2>4) Equipment Check <span class="sub">Editable tasks</span></h2>
-          <div class="content"><div class="checklist" id="equipmentList"></div></div>
+          <h2>4) Edge / Trim <span class="sub">Editable tasks</span></h2>
+          <div class="content"><div class="checklist" id="edgeList"></div></div>
         </div>
 
         <div class="card">
-          <h2>5) Visual / Safety <span class="sub">Editable tasks</span></h2>
-          <div class="content"><div class="checklist" id="visualList"></div></div>
+          <h2>5) Blow / Cleanup <span class="sub">Editable tasks</span></h2>
+          <div class="content"><div class="checklist" id="blowList"></div></div>
         </div>
 
         <div class="card">
-          <h2>6) Chemicals Added <span class="sub">Product + amount</span></h2>
+          <h2>6) Materials / Extras <span class="sub">Optional add-ons</span></h2>
           <div class="content">
-            <table class="table" id="chemTable">
+            <table class="table" id="extrasTable">
               <thead>
                 <tr>
-                  <th style="width:26%">Product</th>
+                  <th style="width:26%">Item</th>
                   <th style="width:16%">Amount</th>
                   <th style="width:18%">Unit</th>
                   <th style="width:40%">Notes</th>
@@ -391,8 +398,8 @@
             </table>
             <div class="divider"></div>
             <div class="inlineBtns">
-              <button class="ghost" id="chemAdd" type="button">+ Add Row</button>
-              <button class="ghost" id="chemClear" type="button">Clear Rows</button>
+              <button class="ghost" id="extrasAdd" type="button">+ Add Row</button>
+              <button class="ghost" id="extrasClear" type="button">Clear Rows</button>
             </div>
           </div>
         </div>
@@ -411,7 +418,7 @@
                   <option>Urgent (ASAP)</option>
                 </select>
               </div>
-              <div><label>Estimated Cost Range (opt)</label><input data-k="issues.estimate" placeholder="e.g., $150–$300" /></div>
+              <div><label>Estimated Cost Range (opt)</label><input data-k="issues.estimate" placeholder="e.g., $50–$150" /></div>
             </div>
             <div>
               <label>Issues Found / Recommendations</label>
@@ -424,11 +431,11 @@
         </div>
 
         <div class="card">
-          <h2>8) Customer Notes + Tech Signature <span class="sub">Clear summary</span></h2>
+          <h2>8) Customer Notes + Crew Signature <span class="sub">Clear summary</span></h2>
           <div class="content">
             <div><label>Customer Notes / Summary</label><textarea data-k="customer.summary" placeholder="What the customer should know…"></textarea></div>
             <div class="row two">
-              <div><label>Tech Signature</label><input data-k="customer.signature" placeholder="Type full name" /></div>
+              <div><label>Crew Signature</label><input data-k="customer.signature" placeholder="Type full name" /></div>
               <div><label>Customer Acknowledgement (opt)</label><input data-k="customer.ack" placeholder="Customer initials / name" /></div>
             </div>
           </div>
@@ -442,7 +449,7 @@
             <div class="histTop">
               <div class="left">
                 <label>Search</label>
-                <input id="histSearch" placeholder="Search customer, address, tech…" />
+                <input id="histSearch" placeholder="Search customer, address, crew…" />
               </div>
               <div style="min-width:220px;">
                 <label>Records</label>
@@ -464,16 +471,16 @@
             <div class="reportPreview" id="reportArea">
               <div class="reportHeader">
                 <div>
-                  <h3>BF Outdoor Services • Pool Maintenance Report</h3>
+                  <h3>Clean Cut Yard Service • Lawn Service Report</h3>
                   <div class="tag" id="rpTag">Customer • Date</div>
                 </div>
                 <div class="tag" id="rpMeta">Generated from checklist</div>
               </div>
 
               <div class="reportBox"><h4>Customer</h4><div class="reportText" id="rpCustomer"></div></div>
-              <div class="reportBox"><h4>Water Test Results</h4><div class="reportText" id="rpWater"></div></div>
+              <div class="reportBox"><h4>Service Details</h4><div class="reportText" id="rpDetails"></div></div>
               <div class="reportBox"><h4>Completed Tasks (checked only)</h4><div class="reportText" id="rpTasks"></div></div>
-              <div class="reportBox"><h4>Chemicals Added</h4><div class="reportText" id="rpChems"></div></div>
+              <div class="reportBox"><h4>Materials / Extras</h4><div class="reportText" id="rpExtras"></div></div>
               <div class="reportBox"><h4>Issues / Recommendations</h4><div class="reportText" id="rpIssues"></div></div>
               <div class="reportBox"><h4>Customer Notes</h4><div class="reportText" id="rpNotes"></div></div>
 
@@ -498,7 +505,7 @@
               </div>
 
               <div class="small" style="margin-top:10px; opacity:.85;">
-                As always, thank you for choosing BF Outdoor Services.
+                As always, thank you for choosing Clean Cut Yard Service.
               </div>
             </div>
 
@@ -513,41 +520,38 @@
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <script>
-    const KEY_TASKS   = "bf_pm_tasks_v5";
-    const KEY_HISTORY = "bf_pm_history_v5";
-    const KEY_DRAFT   = "bf_pm_draft_v5";
+    const KEY_TASKS   = "cc_lawn_tasks_v2";
+    const KEY_HISTORY = "cc_lawn_history_v2";
+    const KEY_DRAFT   = "cc_lawn_draft_v2";
 
+    // 3 sections = Mow / Edge / Blow (same mechanics as the pool version)
     const DEFAULT_TASKS = {
-      cleaning: [
-        { title:"Skim surface", help:"Remove leaves/debris from surface." },
-        { title:"Brush walls/steps", help:"Brush problem areas, steps, tile line." },
-        { title:"Vacuum / robot cycle", help:"Vacuum pool or run cleaner and confirm movement." },
-        { title:"Net bottom debris", help:"Leaf rake if needed." },
-        { title:"Empty skimmer & pump baskets", help:"Remove debris; inspect baskets for damage." },
-        { title:"Wipe waterline (as needed)", help:"Spot clean oils/dirt at tile line." },
-        { title:"Backwash / clean filter (if needed)", help:"Record PSI before/after if done." }
+      mow: [
+        { title:"Walk property for hazards", help:"Toys, sticks, rocks, hoses, sprinkler heads." },
+        { title:"Mow front yard", help:"Consistent lines; avoid scalping." },
+        { title:"Mow back yard", help:"Check gates; watch for wet spots." },
+        { title:"Trim around obstacles", help:"Trees, beds, fence line, AC units." },
+        { title:"Double-cut (if needed)", help:"For heavy growth or uneven turf." }
       ],
-      equipment: [
-        { title:"Pump running / prime OK", help:"No air leaks; normal sound." },
-        { title:"Filter PSI normal", help:"Record PSI; note if rising quickly." },
-        { title:"Heater operation check (if present)", help:"No error codes; verify ignition/flow." },
-        { title:"Salt system (SWG) status", help:"Check % output, lights, cell condition." },
-        { title:"Timer/automation schedule verified", help:"Correct run times; adjust if needed." },
-        { title:"Valves set correctly", help:"Skimmer/main drain/features as desired." },
-        { title:"Visual leak check", help:"Pad plumbing, pump seal, filter, heater unions." }
+      edge: [
+        { title:"Edge driveway", help:"Straight and clean along concrete/asphalt." },
+        { title:"Edge sidewalks", help:"Consistent depth; no gouging." },
+        { title:"Edge curbs (if applicable)", help:"Tidy line along street curb." },
+        { title:"Trim fence line", help:"Clean cut along fence perimeter." },
+        { title:"Trim beds / mailbox / posts", help:"Detail work around features." }
       ],
-      visual: [
-        { title:"Water clarity", help:"Clear / hazy / cloudy — note in comments." },
-        { title:"Algae check", help:"Steps, corners, returns, deep end." },
-        { title:"Stains / scale", help:"Metal stains, calcium scale, plaster spotting." },
-        { title:"Deck hazards", help:"Trip hazards, slippery areas, drainage issues." },
-        { title:"Fence/gate (if applicable)", help:"Gate closes/latches; barrier noted." }
+      blow: [
+        { title:"Blow clippings off hard surfaces", help:"Driveway, sidewalks, patio, porch." },
+        { title:"Blow clippings out of beds", help:"Avoid blowing mulch out." },
+        { title:"Cleanup around doors/garage", help:"Entry areas tidy." },
+        { title:"Pick up trash / loose debris", help:"Bag and remove from property." },
+        { title:"Close/secure gates", help:"Leave gates as found (or secured if requested)." }
       ]
     };
 
     const $ = (sel, el=document) => el.querySelector(sel);
     const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
-    function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
+    const deepClone = (o)=> JSON.parse(JSON.stringify(o));
 
     function setByPath(obj, path, val){
       const parts = path.split(".");
@@ -572,10 +576,10 @@
         .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
         .replaceAll('"',"&quot;").replaceAll("'","&#039;");
     }
-    function pad(n){ return String(n).padStart(2,"0"); }
-    function fmtDate(d){ return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
-    function fmtTime(d){ return `${pad(d.getHours())}:${pad(d.getMinutes())}`; }
-    function fmtWhen(ts){ const d=new Date(ts); return `${fmtDate(d)} ${fmtTime(d)}`; }
+    const pad = (n)=> String(n).padStart(2,"0");
+    const fmtDate = (d)=> `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const fmtTime = (d)=> `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    const fmtWhen = (ts)=> { const d=new Date(ts); return `${fmtDate(d)} ${fmtTime(d)}`; };
     function safeFileName(s){
       return (s||"").toString().trim()
         .replaceAll(/[^a-zA-Z0-9]+/g,"_")
@@ -588,7 +592,7 @@
       if(!raw) return deepClone(DEFAULT_TASKS);
       try{
         const t = JSON.parse(raw);
-        if(!t?.cleaning || !t?.equipment || !t?.visual) throw new Error("bad");
+        if(!t?.mow || !t?.edge || !t?.blow) throw new Error("bad");
         return t;
       }catch{
         return deepClone(DEFAULT_TASKS);
@@ -617,14 +621,8 @@
                   <p class="itemHelp" title="${escapeHTML(it.help || "")}">${escapeHTML(it.help || "")}</p>
                 </div>
                 <div class="inlineBtns" style="margin-top:-2px;">
-                  <button class="ghost miniBtn" type="button"
-                    data-task-action="edit"
-                    data-section="${sectionName}"
-                    data-index="${idx}">Edit</button>
-                  <button class="danger miniBtn" type="button"
-                    data-task-action="delete"
-                    data-section="${sectionName}"
-                    data-index="${idx}">Del</button>
+                  <button class="ghost miniBtn" type="button" data-task-action="edit" data-section="${sectionName}" data-index="${idx}">Edit</button>
+                  <button class="danger miniBtn" type="button" data-task-action="delete" data-section="${sectionName}" data-index="${idx}">Del</button>
                 </div>
               </div>
 
@@ -652,11 +650,7 @@
       const addRow = document.createElement("div");
       addRow.className = "inlineBtns";
       addRow.style.marginTop = "10px";
-      addRow.innerHTML = `
-        <button class="ghost" type="button" data-task-action="add" data-section="${sectionName}">
-          + Add Task
-        </button>
-      `;
+      addRow.innerHTML = `<button class="ghost" type="button" data-task-action="add" data-section="${sectionName}">+ Add Task</button>`;
       wrap.appendChild(addRow);
     }
 
@@ -708,19 +702,19 @@
     }
 
     function renderAll(){
-      renderList("cleaningList","cleaning", TASKS.cleaning);
-      renderList("equipmentList","equipment", TASKS.equipment);
-      renderList("visualList","visual", TASKS.visual);
+      renderList("mowList","mow", TASKS.mow);
+      renderList("edgeList","edge", TASKS.edge);
+      renderList("blowList","blow", TASKS.blow);
       syncReport();
     }
 
-    // ✅ AUTO issues now include the task note/comment so customer sees it
+    // Needs Attention => auto issues + include the notes so customer can see them
     function buildAutoIssuesFromTasks(){
       const lines = [];
       const sections = [
-        { name:"Cleaning",  key:"cleaning" },
-        { name:"Equipment", key:"equipment" },
-        { name:"Visual",    key:"visual" }
+        { name:"Mow",  key:"mow" },
+        { name:"Edge", key:"edge" },
+        { name:"Blow", key:"blow" }
       ];
 
       sections.forEach(sec=>{
@@ -733,7 +727,6 @@
           const noteEl = document.querySelector(`[data-k="task.${sec.key}.${idx}.note"]`);
           const note = (noteEl?.value || "").trim();
 
-          // Customer-facing format: include the note if present
           lines.push(`- [${sec.name}] ${t.title}${note ? ` — ${note}` : ""}`);
         });
       });
@@ -742,6 +735,7 @@
       return `AUTO (Needs Attention)\n${lines.join("\n")}`;
     }
 
+    // Photos
     const PHOTO = { before:"", after:"" };
     async function fileToDataUrl(file, maxDim=1600, quality=0.86){
       const bmp = await createImageBitmap(file);
@@ -785,50 +779,52 @@
     $("#beforeClear").addEventListener("click", ()=> setPhoto("before",""));
     $("#afterClear").addEventListener("click", ()=> setPhoto("after",""));
 
-    const chemBody = $("#chemTable tbody");
-    function addChemRow(row={product:"",amount:"",unit:"",notes:""}){
+    // Extras table
+    const extrasBody = $("#extrasTable tbody");
+    function addExtrasRow(row={item:"",amount:"",unit:"",notes:""}){
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td><input data-chem="product" placeholder="e.g., Liquid Chlorine" value="${escapeHTML(row.product)}"></td>
-        <td><input data-chem="amount" placeholder="e.g., 1.5" value="${escapeHTML(row.amount)}"></td>
+        <td><input data-ex="item" placeholder="e.g., Pine straw / Mulch / Haul-off" value="${escapeHTML(row.item)}"></td>
+        <td><input data-ex="amount" placeholder="e.g., 3" value="${escapeHTML(row.amount)}"></td>
         <td>
-          <select data-chem="unit">
-            ${["—","gal","qt","lb","oz","cups","ppm target"].map(u=>`<option ${u===row.unit?"selected":""}>${u}</option>`).join("")}
+          <select data-ex="unit">
+            ${["—","bags","bales","loads","minutes","sq ft"].map(u=>`<option ${u===row.unit?"selected":""}>${u}</option>`).join("")}
           </select>
         </td>
-        <td><input data-chem="notes" placeholder="Reason / method" value="${escapeHTML(row.notes)}"></td>
+        <td><input data-ex="notes" placeholder="Reason / where used" value="${escapeHTML(row.notes)}"></td>
       `;
-      chemBody.appendChild(tr);
+      extrasBody.appendChild(tr);
     }
-    $("#chemAdd").addEventListener("click", ()=>{ addChemRow(); syncReport(); });
-    $("#chemClear").addEventListener("click", ()=>{
-      if(confirm("Clear all chemical rows?")){
-        chemBody.innerHTML=""; addChemRow(); syncReport();
+    $("#extrasAdd").addEventListener("click", ()=>{ addExtrasRow(); syncReport(); });
+    $("#extrasClear").addEventListener("click", ()=>{
+      if(confirm("Clear all rows?")){
+        extrasBody.innerHTML=""; addExtrasRow(); syncReport();
       }
     });
-    addChemRow();
+    addExtrasRow();
 
+    // Collect / Apply
     function collect(){
-      const data = { version:5, ts: Date.now(), tasks: TASKS, photos: {before:PHOTO.before, after:PHOTO.after} };
+      const data = { version:2, ts: Date.now(), tasks: TASKS, photos: {before:PHOTO.before, after:PHOTO.after} };
       $$("[data-k]").forEach(el=>{
         const key = el.getAttribute("data-k");
         const val = (el.type === "checkbox") ? !!el.checked : (el.value ?? "");
         setByPath(data, key, val);
       });
-      const chems=[];
-      $$("#chemTable tbody tr").forEach(tr=>{
+      const extras=[];
+      $$("#extrasTable tbody tr").forEach(tr=>{
         const r={};
-        $$("[data-chem]", tr).forEach(inp=>{
-          r[inp.getAttribute("data-chem")] = inp.value ?? "";
+        $$("[data-ex]", tr).forEach(inp=>{
+          r[inp.getAttribute("data-ex")] = inp.value ?? "";
         });
-        const any = (r.product||"").trim() || (r.amount||"").trim() || (r.notes||"").trim();
-        if(any) chems.push(r);
+        const any = (r.item||"").trim() || (r.amount||"").trim() || (r.notes||"").trim();
+        if(any) extras.push(r);
       });
-      data.chems=chems;
+      data.extras=extras;
       return data;
     }
     function apply(data){
-      if(data?.tasks?.cleaning && data?.tasks?.equipment && data?.tasks?.visual){
+      if(data?.tasks?.mow && data?.tasks?.edge && data?.tasks?.blow){
         TASKS = data.tasks;
         saveTasks(TASKS);
       }
@@ -839,9 +835,9 @@
         if(el.type === "checkbox") el.checked = !!val;
         else el.value = val ?? "";
       });
-      chemBody.innerHTML="";
-      if(Array.isArray(data.chems) && data.chems.length) data.chems.forEach(r=>addChemRow(r));
-      else addChemRow();
+      extrasBody.innerHTML="";
+      if(Array.isArray(data.extras) && data.extras.length) data.extras.forEach(r=>addExtrasRow(r));
+      else addExtrasRow();
       setPhoto("before", data.photos?.before || "");
       setPhoto("after",  data.photos?.after  || "");
       syncReport();
@@ -855,19 +851,18 @@
       });
       return titles;
     }
-    function chemicalsSummary(data){
-      if(!Array.isArray(data.chems) || !data.chems.length) return "—";
-      return data.chems.map(r=>{
-        const prod=(r.product||"").trim();
+    function extrasSummary(data){
+      if(!Array.isArray(data.extras) || !data.extras.length) return "—";
+      return data.extras.map(r=>{
+        const item=(r.item||"").trim();
         const amt=(r.amount||"").trim();
         const unit=(r.unit||"").trim();
         const notes=(r.notes||"").trim();
         const u = (unit && unit!=="—") ? ` ${unit}` : "";
-        const main = `${prod}${amt ? ` • ${amt}${u}` : ""}`.trim();
+        const main = `${item}${amt ? ` • ${amt}${u}` : ""}`.trim();
         return notes ? `${main} (${notes})` : main;
       }).join("\n");
     }
-
     function issuesSummary(data){
       const pr = (getByPath(data,"issues.priority")||"").trim() || "—";
       const est = (getByPath(data,"issues.estimate")||"").trim();
@@ -880,28 +875,26 @@
     function syncReport(){
       const data = collect();
 
-      // AUTO inject Needs Attention items into issues.notes (keeps manual notes above it)
+      // Auto issues injection
       const auto = buildAutoIssuesFromTasks();
       const notesPath = "issues.notes";
       const current = (getByPath(data, notesPath) || "").toString();
       const startTag = "AUTO (Needs Attention)";
       let manual = current;
-
       if(current.includes(startTag)){
         manual = current.split(startTag)[0].trim();
       }
-
       let combined = manual;
       if(auto){
         combined = (combined ? combined + "\n\n" : "") + auto;
       }
-
       const issuesBox = document.querySelector(`[data-k="${notesPath}"]`);
       if(issuesBox && issuesBox.value !== combined){
         issuesBox.value = combined;
       }
       setByPath(data, notesPath, combined);
 
+      // Header fields
       const cust = (getByPath(data,"job.customer")||"").trim() || "—";
       const addr = (getByPath(data,"job.address")||"").trim() || "—";
       const date = (getByPath(data,"job.date")||"").trim() || "—";
@@ -915,20 +908,21 @@
 `Customer: ${cust}
 Address: ${addr}
 Date/Time: ${date}${time?` ${time}`:""}
-Technician: ${tech}`;
+Crew: ${tech}`;
 
-      $("#rpWater").textContent =
-`FC: ${getByPath(data,"water.fc")||"—"}    TC: ${getByPath(data,"water.tc")||"—"}    pH: ${getByPath(data,"water.ph")||"—"}
-TA: ${getByPath(data,"water.ta")||"—"}    CH: ${getByPath(data,"water.ch")||"—"}    CYA: ${getByPath(data,"water.cya")||"—"}
-Salt: ${getByPath(data,"water.salt")||"—"}    Temp: ${getByPath(data,"water.temp")||"—"}    Phos: ${getByPath(data,"water.phos")||"—"}
+      // Service details
+      $("#rpDetails").textContent =
+`Mow Height: ${getByPath(data,"details.mowHeight")||"—"}    Bagging: ${getByPath(data,"details.bagging")||"—"}    Weather: ${getByPath(data,"details.weather")||"—"}
+Gate Access: ${getByPath(data,"details.gate")||"—"}    Pets: ${getByPath(data,"details.pets")||"—"}    Clippings: ${getByPath(data,"details.clippings")||"—"}
 
-Adjustments Made:
-${(getByPath(data,"water.adjustments")||"").trim() || "—"}`;
+Work Notes:
+${(getByPath(data,"details.notes")||"").trim() || "—"}`;
 
+      // Completed tasks: checked only
       const tasks = checkedTaskList();
       $("#rpTasks").textContent = tasks.length ? tasks.map(t=>`• ${t}`).join("\n") : "—";
 
-      $("#rpChems").textContent = chemicalsSummary(data);
+      $("#rpExtras").textContent = extrasSummary(data);
       $("#rpIssues").textContent = issuesSummary(data);
 
       $("#rpNotes").textContent =
@@ -939,6 +933,7 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       localStorage.setItem(KEY_DRAFT, JSON.stringify(data));
     }
 
+    // History
     function loadHistory(){
       const raw = localStorage.getItem(KEY_HISTORY);
       if(!raw) return [];
@@ -955,7 +950,7 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
     }
     function recordSubtitle(rec){
       const addr = getByPath(rec,"job.address") || "Address";
-      const tech = getByPath(rec,"job.tech") || "Tech";
+      const tech = getByPath(rec,"job.tech") || "Crew";
       const when = fmtWhen(rec.ts || Date.now());
       return `${when} • ${tech} • ${addr}`;
     }
@@ -1013,14 +1008,15 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       saveHistory(HISTORY);
       renderHistory();
     }
+
     function finishVisit(){
-      syncReport(); // ensure AUTO issues applied before save
+      syncReport();
       const data = collect();
       const cust = (getByPath(data,"job.customer")||"").trim();
       const date = (getByPath(data,"job.date")||"").trim();
       const tech = (getByPath(data,"job.tech")||"").trim();
       if(!cust || !date || !tech){
-        const ok = confirm("Customer, Date, or Tech is blank. Save record anyway?");
+        const ok = confirm("Customer, Date, or Crew is blank. Save record anyway?");
         if(!ok) return;
       }
       const now = Date.now();
@@ -1032,9 +1028,10 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       if(goNext) newVisit();
       else renderHistory();
     }
+
     function newVisit(){
       $$("[data-k]").forEach(el=>{ if(el.type==="checkbox") el.checked=false; else el.value=""; });
-      chemBody.innerHTML=""; addChemRow();
+      extrasBody.innerHTML=""; addExtrasRow();
       setPhoto("before",""); setPhoto("after","");
       setDefaults();
       ACTIVE_ID=null;
@@ -1042,6 +1039,7 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       renderHistory();
       toast("Ready for next visit.");
     }
+
     function openRecord(id){
       const rec = HISTORY.find(r=>r.id===id);
       if(!rec) return;
@@ -1090,9 +1088,10 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       toast("History cleared.");
     });
 
+    // Export/Import
     function exportJSON(){
       const payload = { exportedAt: Date.now(), tasks: TASKS, history: HISTORY };
-      const filename = `BF_PM_HISTORY_${fmtDate(new Date())}.json`;
+      const filename = `CC_LAWN_HISTORY_${fmtDate(new Date())}.json`;
       const blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json"});
       const url = URL.createObjectURL(blob);
       const a=document.createElement("a");
@@ -1112,6 +1111,7 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       }
     }
 
+    // Share report (exact same behavior + message)
     async function captureReportBlob(){
       syncReport();
       const source = document.getElementById("reportArea");
@@ -1133,20 +1133,20 @@ Customer Acknowledgement: ${((getByPath(data,"customer.ack")||"").trim() || "—
       const date = (getByPath(data,"job.date")||"").trim() || fmtDate(new Date());
       const customerRaw = getByPath(data,"job.customer") || "Customer";
       const customer = safeFileName(customerRaw);
-      const filename = `BF_Pool_Report_${customer}_${date}.png`;
+      const filename = `CC_Lawn_Report_${customer}_${date}.png`;
 
       const message =
-`BF Outdoor Services • Pool Maintenance Report
+`Clean Cut Yard Service • Lawn Service Report
 Date: ${date}
 
-Please review the attached report from today’s service, and as always thank you for choosing BF Outdoor Services.`;
+Please review the attached report from today’s service, and as always thank you for choosing Clean Cut Yard Service.`;
 
       try{
         const blob = await captureReportBlob();
         const file = new File([blob], filename, { type:"image/png" });
 
         if(navigator.canShare && navigator.canShare({ files:[file] }) && navigator.share){
-          await navigator.share({ title: "Pool Maintenance Report", text: message, files: [file] });
+          await navigator.share({ title: "Lawn Service Report", text: message, files: [file] });
           toast("Share sheet opened.");
           return;
         }
@@ -1162,6 +1162,7 @@ Please review the attached report from today’s service, and as always thank yo
       }
     }
 
+    // Defaults / wiring
     function setDefaults(){
       const dateEl = document.querySelector('[data-k="job.date"]');
       const timeEl = document.querySelector('[data-k="job.time"]');
@@ -1173,6 +1174,7 @@ Please review the attached report from today’s service, and as always thank yo
       if(!confirm("Reset current form? (History stays)")) return;
       newVisit();
     }
+
     let toastTimer=null;
     function toast(msg){
       clearTimeout(toastTimer);
@@ -1224,8 +1226,8 @@ Please review the attached report from today’s service, and as always thank yo
       if(action === "add")    return addTask(section);
     });
 
-    document.addEventListener("input",(e)=>{ if(e.target.matches("[data-k],[data-chem]")) syncReport(); });
-    document.addEventListener("change",(e)=>{ if(e.target.matches("[data-k],[data-chem]")) syncReport(); });
+    document.addEventListener("input",(e)=>{ if(e.target.matches("[data-k],[data-ex]")) syncReport(); });
+    document.addEventListener("change",(e)=>{ if(e.target.matches("[data-k],[data-ex]")) syncReport(); });
 
     function init(){
       setDefaults();
